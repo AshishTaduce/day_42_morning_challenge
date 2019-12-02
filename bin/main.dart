@@ -10,5 +10,16 @@
 //  99% of the numbers are less than or equal to 22
 //  100% of the numbers are less than or equal to 22
 
+import 'dart:math';
+
+List<int> percentileLog(List<int> array){
+  List <int> listOfPercentages = [25,50,75,90,95,99,100];
+  List<int> results = [];
+  array.sort();
+  listOfPercentages.forEach((int percentage) => results.add(array[((percentage* (array.length)) / 100).ceil() - 1].ceil()));
+  return results;
+}
+
 main() {
+percentileLog([8, 6, 6, 20, 9, 1, 12, 16, 3, 16, 22, 2]);
 }
